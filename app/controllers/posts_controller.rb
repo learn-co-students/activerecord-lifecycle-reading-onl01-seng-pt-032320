@@ -1,3 +1,4 @@
+require 'pry'
 class PostsController < ApplicationController
 	def index
 		@posts = Post.all
@@ -11,8 +12,8 @@ class PostsController < ApplicationController
 		@post = Post.new
 	end
 
-	def create
-	  @post = Post.new(params.require(:post).permit(:title, :description))
+	def create 
+	  @post = Post.new(params.require(:post).permit(:title, :description)) 
     if @post.save
       redirect_to post_path(@post)
     else
